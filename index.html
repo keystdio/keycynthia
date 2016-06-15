@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.countdown.css">
+    <title>傻子好!</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.plugin.js"></script>
+    <script type="text/javascript" src="js/jquery.countdown.js"></script>
+    <script type="text/javascript" src="js/jquery.countdown-zh-CN.js"></script>
+    <script type="text/javascript">
+        window.onload = (function(){
+            $.countdown.setDefaults($.countdown.regionalOptions['zh-CN']);
+            $('#counter').countdown(
+                {
+                    since: new Date(2015, 6-1, 25),
+                    format: 'YODHMS'
+                });
+        });
+
+    </script>
+</head>
+<body>
+    <div class="block" id="header">
+        <p id="love1">姚旷宥 ♥ 张凌月</p>
+        <p id="love2">我们相爱了</p>
+        <div id="counter"></div>
+        <p id="love3">To be continued.</p>
+    </div>
+    <div class="block" id="story-line"></div>
+    <div class="block" id="gallery"></div>
+</body>
+</html>
