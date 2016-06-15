@@ -1,3 +1,5 @@
 archive
 node_modules
 ec2-pair.pem
+.idea/
+

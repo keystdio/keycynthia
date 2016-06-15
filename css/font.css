@@ -1,0 +1,8 @@
+body {
+    font-family: cute;
+}
+
+@font-face {
+    font-family: cute;
+    src: url("../res/cute.ttf");
+}
