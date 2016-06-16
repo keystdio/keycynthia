@@ -10,7 +10,7 @@
 	$json = array();
 
 	foreach($rows as $row) {
-		$json[] = $row;
+		$json[] = array($row['date'], $row['story'], $row['type']);
 	}
 
 	header('Content-Type: application/json');
