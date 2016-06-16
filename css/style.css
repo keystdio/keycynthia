@@ -14,7 +14,7 @@ div#header::after {
     content: "";
     opacity: 0.3;
     background-size: cover;
-    background-image: url("../img/阿狸七夕.jpg");
+    background-image: url("../img/header_bg.jpg");
     top: 0;
     left: 0;
     bottom: 0;
@@ -23,23 +23,28 @@ div#header::after {
     z-index: -1;
 }
 
-p#love1 {
+p.header1 {
     text-align: center;
-    font-size: 120px;
+    font-size: 100px;
     color: hotpink;
 }
 
-p#love2 {
+p.header2 {
     text-align: center;
     font-size: 70px;
     color: black;
 }
 
-p#love3 {
-    margin-top: 100px;
+p.header3 {
+    margin-top: 80px;
     text-align: center;
     font-size: 30px;
     color: black;
     font-style: italic;
 }
 
+img.slide {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    max-height: 300px;
+}

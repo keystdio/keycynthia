@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/font.css" media="none" onload="this.media='all';">
     <link rel="stylesheet" type="text/css" href="css/jquery.countdown.css">
     <title>傻子好!</title>
+    <script type="text/javascript" src="js/aws-sdk-2.1.12.min.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.plugin.js"></script>
     <script type="text/javascript" src="js/jquery.countdown.js"></script>
@@ -13,23 +14,32 @@
     <script type="text/javascript">
         window.onload = (function(){
             $.countdown.setDefaults($.countdown.regionalOptions['zh-CN']);
-            $('#counter').countdown(
+            $('#header-counter').countdown(
                 {
                     since: new Date(2015, 6-1, 25),
                     format: 'YODHMS'
                 });
-        });
 
+            getS3Images();
+        });
     </script>
+
+
+    <script type="text/javascript" src="js/s3.js"></script>
 </head>
 <body>
     <div class="block" id="header">
-        <p id="love1">姚旷宥 ♥ 张凌月</p>
-        <p id="love2">我们相爱了</p>
-        <div id="counter"></div>
-        <p id="love3">To be continued.</p>
+        <p class="header1" id="header-p-1">姚旷宥 ♥ 张凌月</p>
+        <p class="header2" id="header-p-2">我们相爱了</p>
+        <div id="header-counter"></div>
+        <p class="header3" id="header-p-3">To be continued.</p>
     </div>
     <div class="block" id="story-line"></div>
-    <div class="block" id="gallery"></div>
+
+    <hr>
+
+    <div class="block" id="gallery">
+        <p class="header1" id="gallery-p-1">我们的回忆</p>
+    </div>
 </body>
 </html>

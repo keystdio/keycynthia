@@ -2,4 +2,10 @@ archive
 node_modules
 ec2-pair.pem
 .idea/
-
+credentials/
+.editorconfig
+.gitattributes
+.jscsrc
+.jshintrc
+.travis.yml
+s3_images/
