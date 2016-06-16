@@ -13,34 +13,59 @@ function getS3Images() {
             alert(error); // an error occurred
         } else {
             // request succeeded
-            var divNumberNeeded = data.Contents.length / 10;
-
-            // Append enough divs to hold the images
-            // 10 images sliding per page.
-            for (var i = 0; i < divNumberNeeded; i++) {
-                var newDivChildNode = jQuery('<div>');
-                newDivChildNode.attr('id', 'div-line-' + i);
-                $('#gallery').append(newDivChildNode);
-            }
+            var newDivChildNode = jQuery('<div>');
+            newDivChildNode.attr('id', 'gallery-image-holder');
+            $('#gallery').append(newDivChildNode);
 
             for (var i = 0; i < data.Contents.length; i++) {
                 var currImageName = data.Contents[i].Key;
-                loadS3Images(currImageName, parseInt(i / 10));
+                loadS3Images(currImageName);
             }
         }
     });
 }
 
-function loadS3Images(currImageName, i) {
+function loadS3Images(currImageName) {
     s3Client.getSignedUrl('getObject', {Bucket: imageBucketName, Key: currImageName}, function(err, url) {
         if (err) {
             console.error(err);
         } else {
             var img = $('<img class="slide">');
             img.attr('src', url);
-            img.appendTo('#div-line-' + i);
-            console.log(i);
+            img.click(function() {
+                console.log(this.src);
+                openSlideShow(this.src);
+            });
+            img.appendTo('#gallery-image-holder');
+
         }
     });
 
+}
+
+// open the slide show black box, with id as the marker point.
+function openSlideShow(imageURL){
+    var blackOverlay = document.createElement("div");
+    blackOverlay.id = "overlay";
+    blackOverlay.onclick = closeSlideShow;
+
+    // close button
+    var closeButton = document.createElement("p");
+    closeButton.id = "closeButton";
+    closeButton.onclick = closeSlideShow;
+    closeButton.innerHTML = "&#215";
+
+    // center image
+    var imageBlock = document.createElement("img");
+    imageBlock.id = "overlay-image";
+    imageBlock.src = imageURL;
+
+    blackOverlay.appendChild(closeButton);
+    blackOverlay.appendChild(imageBlock);
+    document.body.appendChild(blackOverlay);
+}
+
+function closeSlideShow(){
+    var itself = document.getElementById("overlay");
+    itself.parentNode.removeChild(itself);
 }

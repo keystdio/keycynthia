@@ -44,7 +44,45 @@ p.header3 {
 }
 
 img.slide {
-    overflow-x: scroll;
-    overflow-y: hidden;
-    max-height: 300px;
+    display: inline;
+    margin: 5px;
+    max-height: 250px;
+}
+
+
+
+#overlay {
+    opacity: 0.98;
+    background-color: black;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    right: 0px;
+    z-index: 1000;
+}
+
+
+#overlay-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 95%;
+    width: auto;
+    position: relative;
+    top: 1.5%;
+}
+
+#closeButton {
+    opacity: 0.8;
+    color: white;
+    font-size: 20pt;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    z-index: 199;
+}
+
+#closeButton:hover, .slide:hover {
+    cursor: pointer;
 }
